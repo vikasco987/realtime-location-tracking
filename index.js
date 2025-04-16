@@ -8,6 +8,7 @@ const socketio = require('socket.io')
 const server = http.createServer(app)
 const io = socketio(server)
 
+//setup connection
 io.on("connection", function (socket) {
     socket.on("send-location", function (data) {
         io.emit("receive-location", { id: socket.id, ...data })
